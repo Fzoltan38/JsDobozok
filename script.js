@@ -20,38 +20,52 @@ document.getElementById("element-one").onclick = function (){
     catch{
         alert("Hiba");
     }
-   
-
-    
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+};
 
 /*
 2. doboz:
 Ha az egérrel fölé megyünk változzon meg a háttérszíne pirosra, ha levesszük róla az egeret
 változzon vissza az eredeti színére.
 */
+let isHovered = false;
+
+document.getElementById("element-two").onmouseenter = ()=>{
+  isHovered = !isHovered
+  renderSecondBox();
+}
+
+document.getElementById("element-two").onmouseleave = function (){
+  isHovered = !isHovered
+  renderSecondBox();
+}
+
+function renderSecondBox(){
+  if(isHovered){
+    document.getElementById("element-two").style.backgroundColor = "red";
+  }
+  else{
+    document.getElementById("element-two").style.backgroundColor = "";
+  }
+}
 
 /*
 3. doboz:
 Dupla kattintással sorsoljon egy számot 1 és 20 között és módosítsa a kapott számmal a doboz tartalmát. 
 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*

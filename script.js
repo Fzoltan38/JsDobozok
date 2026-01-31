@@ -53,25 +53,41 @@ function renderSecondBox(){
 Dupla kattintással sorsoljon egy számot 1 és 20 között és módosítsa a kapott számmal a doboz tartalmát. 
 */
 
+function next(min, max){
+  return Math.floor(Math.random() * (max-min) + min);
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+document.getElementById("element-three").ondblclick = ()=>{
+  
+  document.getElementById("element-three").firstElementChild.innerHTML = next(1,20);
+}
 
 /*
 4. doboz:
 Kattintásra tűnjön el, majd egy 1 másodperces várakozás után ismét jelenjen meg.
 */
+
+let e4 = document.getElementById("element-four");
+e4.onclick = ()=>{
+  e4.classList.add("hidden");
+  setTimeout(
+    function () 
+    {
+      e4.classList.remove("hidden");
+    },1000);
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*
 5. doboz:

@@ -76,36 +76,43 @@ e4.onclick = ()=>{
       e4.classList.remove("hidden");
     },1000);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*
 5. doboz:
 Kattintásra alakítsa kör alakúra az összes dobozt.
 */
+let e5 = document.getElementById("element-five");
+e5.onclick = ()=>{
+  let boxes = document.querySelectorAll(".shape");
 
+  for (let box of boxes){
+    box.style.borderRadius = "50%";
+  }
+}
 
 /*
 6. doboz:
 Form submit eseményre módosítsuk a doboz tartalmát az input mezőbe írt értékkel
 */
 
+let form1 = document.getElementById("box-6");
 
+form1.onsubmit = (event) =>{
+  event.preventDefault();
+  document.getElementById("element-six").firstElementChild.innerHTML = 
+  event.target.boxNumber.value;
+}
 /*
 7. doboz:
 Keypress eseményre írjuk be a dobozba az adott karaktert, amit leütöttek
 */
 
+let text = "";
+document.getElementById("box7-input").onkeydown = (event)=>{
+
+  text = text + event.key;
+  document.getElementById("element-seven").firstElementChild.innerHTML =
+  text;
+}
 
 /*
 8. doboz:
@@ -113,6 +120,10 @@ Egérmozdítás eseményre írjuk be az egér pozíciójának x és y koordinát
 a következő séma szerint: "X: {x-koordináta}, Y: {y-koordináta}"
 */
 
+document.onmousemove = (event)=>{
+  let coordinates = `X: ${event.clientX}, Y: ${event.clientY}`;
+  document.getElementById("element-eight").firstElementChild.innerHTML = coordinates;
+}
 
 /*
 9. doboz:
@@ -131,3 +142,42 @@ Pl:
   
   Dobozba és state-be beírandó érték: 45
 */
+
+let state = 9;
+
+document.getElementById("box-9").onsubmit = (event)=>{
+  event.preventDefault();
+
+  let operand = Number(event.target.operand.value);
+  let operator = event.target.operator.value; 
+
+  console.log(operand);
+  console.log(operator);
+
+  switch (operator){
+
+    case "mult":{
+      state = state * operand;
+      break;
+    }
+
+    case "div":{
+       state = state / operand;
+      break;
+    }
+
+    case "add":{
+       state = state + operand;
+      break;
+    }
+
+    case "sub":{
+       state = state - operand;
+      break;
+    }
+
+  }
+  
+  document.getElementById("element-nine").firstElementChild.innerHTML = state;
+
+}
